@@ -1,8 +1,8 @@
 // Beast16 Market: escrow trading untuk NFT Beast16 (pola VerseMarket).
 // KONFIGURASI LAUNCH: isi alamat kontrak saat koleksi rilis, halaman langsung aktif.
 const CONFIG = {
-  nft: "",            // Beast16 NFT contract (diisi saat launch)
-  market: "",         // Beast16 Market contract (diisi saat launch)
+  nft: "0xaCeF3B62B958ED7F49dFc73885609b4d270B9bD0",            // Beast16 NFT contract (diisi saat launch)
+  market: "0x50bCbE0Adb0f1F731e59a0B6C74e94407D8b202E",         // Beast16 Market contract (diisi saat launch)
   chainId: 56,
   rpcs: [
     "https://bsc-dataseed.binance.org",
