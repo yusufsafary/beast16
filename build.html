@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css?v=1"/>
+<link rel="stylesheet" href="css/style.css?v=2"/>
 </head>
 <body>
 <header class="site">
@@ -28,11 +28,11 @@
     <div class="sec-head">
       <p class="label" style="color:var(--berry)">Trait mixer · Just for fun</p>
       <h2 class="display">Build a Beast</h2>
-      <p>Mix and match the same traits the chain will use at mint. Your minted beast is decided by its on-chain seed, but this is exactly how wild the pack can get.</p>
+      <p>Every species in the pack, rendered in glossy 3D. Pick a species, set a vibe, save your favorite. Your minted beast is decided by its on-chain seed, but this is exactly how wild the pack looks.</p>
     </div>
     <div class="mixer">
       <div class="stage">
-        <div class="sticker" id="stage-art"></div>
+        <div class="sticker"><img id="stage-img" src="img/sp-07.jpg" alt="Fox Kit"/></div>
         <div style="display:flex; gap:10px; margin-top:16px">
           <button class="btn btn-sun" id="btn-random" style="flex:1">Random beast</button>
           <button class="btn" id="btn-save" style="flex:1">Save PNG</button>
@@ -40,11 +40,7 @@
       </div>
       <div class="controls">
         <div class="ctl"><span class="label">Species</span><div class="chips" id="ctl-species"></div></div>
-        <div class="ctl"><span class="label">Fur</span><div class="chips" id="ctl-fur"></div></div>
-        <div class="ctl"><span class="label">Background</span><div class="chips" id="ctl-bg"></div></div>
-        <div class="ctl"><span class="label">Eyes</span><div class="chips" id="ctl-eyes"></div></div>
-        <div class="ctl"><span class="label">Mouth</span><div class="chips" id="ctl-mouth"></div></div>
-        <div class="ctl"><span class="label">Accessory</span><div class="chips" id="ctl-acc"></div></div>
+        <div class="ctl"><span class="label">Vibe</span><div class="chips" id="ctl-vibe"></div></div>
         <div class="traits-out" id="traits-out"></div>
       </div>
     </div>
@@ -57,7 +53,6 @@
   </div>
 </footer>
 <div id="toast" role="status"></div>
-<script src="js/beast.js?v=1"></script>
-<script src="js/build.js?v=1"></script>
+<script src="js/build.js?v=2"></script>
 </body>
 </html>
