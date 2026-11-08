@@ -22,7 +22,7 @@
       <a class="hideS" href="#token">$BEAST16</a>
       <a class="hideS" href="#faq">FAQ</a>
       <a class="hideS" href="market/" style="color:var(--berry)">Market</a>
-      <a href="#mint" class="btn btn-orange" style="padding:.55rem 1.1rem; font-size:14px">Mint soon</a>
+      <a href="#mint" class="btn btn-orange" style="padding:.55rem 1.1rem; font-size:14px" id="navMintBtn">Mint · Nov 8, 12:00 UTC</a>
     </nav>
   </div>
 </header>
@@ -44,9 +44,14 @@
 
   <section class="blk" id="mint">
     <div class="sec-head">
-      <p class="label" style="color:var(--berry)">Two ways in · Same gate opens for both</p>
+      <p class="label" style="color:var(--berry)">Two ways in · Opens Nov 8 · 12:00 UTC</p>
       <h2 class="display">Pick your lane</h2>
       <p>Both lanes open at the same moment. Agent wallets are first class here, and everyone plays by the same rules: first beast free, then 0.000474 BNB each, twenty per wallet at most.</p>
+    </div>
+    <div style="border:3px solid var(--ink); border-radius:20px; background:var(--paper); text-align:center; padding:20px 16px; margin-bottom:18px">
+      <p class="label" style="color:var(--berry)" id="cdLabel">Mint opens · Nov 8, 12:00 UTC</p>
+      <p class="display" id="countdown" style="font-size:clamp(32px,7vw,46px); margin-top:6px">--:--:--</p>
+      <p style="color:var(--ink2); font-weight:700; font-size:13px; margin-top:4px">All times in UTC · Reveal 24 hours after the open</p>
     </div>
     <div class="lanes">
       <div class="lane dark">
@@ -65,11 +70,11 @@
         <h3 class="display">Any wallet, in the browser</h3>
         <ul>
           <li>Connect a regular wallet right on this page</li>
-          <li>First beast free, up to 20 per wallet</li>
+          <li>Paid from the first beast, up to 20 per wallet</li>
           <li>Same supply, same moment, same beasts</li>
           <li>Opens together with the agent lane</li>
         </ul>
-        <p style="margin-top:16px; font-weight:700; color:var(--ink2)">The mint button wakes up here the moment the pack is released.</p>
+        <p style="margin-top:16px; font-weight:700; color:var(--ink2)">Paid mint runs on this page through your wallet the moment the gate opens.</p>
       </div>
     </div>
   </section>
@@ -107,8 +112,8 @@
     </div>
     <div class="faq">
       <details><summary>What is Beast16?</summary><p>A collection of 4,444 baby beast NFTs on BNB Smart Chain, drawn from 16 species by on-chain seed. Cute faces, tiny fangs, real rarity: one species appears in only about 3% of mints.</p></details>
-      <details><summary>How do I mint?</summary><p>Two lanes open at the same time. Binance Agentic Wallet users mint through their agent with the skill file, gated by Agent ID. Everyone else connects a regular wallet on this site. First mint is free for every wallet; after that each beast costs 0.000474 BNB, up to 20 per wallet.</p></details>
-      <details><summary>When is the mint?</summary><p>Very soon. Follow <a href="https://x.com" target="_blank" rel="noopener">the Beast16 X account</a> and keep this page close. Reveal happens 24 hours after mint opens.</p></details>
+      <details><summary>How do I mint?</summary><p>Two lanes open at the same time. Binance Agentic Wallet users mint through their agent with the skill file; the first beast is free for Agent ID holders. Everyone else mints paid on this site at 0.000474 BNB per beast, up to 20 per wallet.</p></details>
+      <details><summary>When is the mint?</summary><p>Mint opens Nov 8 at 12:00 UTC, both lanes at the same moment. Follow <a href="https://x.com/Jake_beast16" target="_blank" rel="noopener">@Jake_beast16 on X</a> and keep this page close. Reveal happens 24 hours after mint opens.</p></details>
       <details><summary>What is $BEAST16?</summary><p>The pack token, supply 10 billion. Each Beast16 NFT can claim 250,000 $BEAST16 once. The launch time is deliberately hidden; there is no countdown and no leaked date.</p></details>
       <details><summary>Can I design my own beast?</summary><p>Yes, for fun: open Build a Beast and mix species, fur, eyes, mouths and accessories. Minted beasts are decided by the chain, but the mixer shows what the pack can look like.</p></details>
     </div>
@@ -119,16 +124,31 @@
   <div class="wrap frow">
     <div>
       <p class="display" style="font-size:24px">BEAST<b style="color:var(--berry)">16</b> · beast16.fun</p>
-      <p class="label" style="color:var(--ink2); margin-top:6px">4,444 baby beasts · BNB Smart Chain · Contracts announced at launch</p>
+      <p class="label" style="color:var(--ink2); margin-top:6px">4,444 baby beasts · BNB Smart Chain · NFT 0xaCeF3B62B958ED7F49dFc73885609b4d270B9bD0</p>
     </div>
     <div class="label" style="display:flex; gap:18px; align-items:center">
       <a href="species.html" style="text-decoration:none">The Sixteen</a>
       <a href="build.html" style="text-decoration:none">Build a Beast</a>
       <a href="#faq" style="text-decoration:none">FAQ</a>
       <a href="market/" style="text-decoration:none">Market</a>
+      <a href="https://x.com/Jake_beast16" target="_blank" rel="noopener" style="text-decoration:none">X · @Jake_beast16</a>
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var OPEN = 1794139200 * 1000;
+  var cd = document.getElementById('countdown'), label = document.getElementById('cdLabel'), nav = document.getElementById('navMintBtn');
+  function tick(){
+    var left = OPEN - Date.now();
+    if (left <= 0) { cd.textContent = 'MINT IS LIVE'; label.textContent = 'Mint is live · opened Nov 8, 12:00 UTC'; if (nav) nav.textContent = 'Mint is live'; return; }
+    var h = Math.floor(left/3600000), m = Math.floor(left%3600000/60000), sec = Math.floor(left%60000/1000);
+    cd.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
 <script src="js/site.js?v=2"></script>
 </body>
 </html>
