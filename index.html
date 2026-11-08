@@ -53,6 +53,14 @@
       <p class="display" id="countdown" style="font-size:clamp(32px,7vw,46px); margin-top:6px">--:--:--</p>
       <p style="color:var(--ink2); font-weight:700; font-size:13px; margin-top:4px">All times in UTC · Reveal 24 hours after the open</p>
     </div>
+    <div style="border:3px solid var(--ink); border-radius:20px; background:var(--forest); color:var(--paper); text-align:center; padding:20px 16px; margin-bottom:18px">
+      <p class="label" style="color:var(--sun)"><span id="liveDot" style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#3ddc84; margin-right:7px; vertical-align:1px"></span>Live mint count · on-chain</p>
+      <p class="display" style="font-size:clamp(38px,8vw,54px); margin-top:6px"><span id="liveMinted">···</span> <span style="font-size:.45em; color:var(--sun)">/ 4,444 minted</span></p>
+      <div style="height:14px; border-radius:99px; background:rgba(255,251,242,.18); overflow:hidden; margin:14px auto 8px; max-width:520px">
+        <div id="liveBar" style="height:100%; width:0%; background:var(--sun); border-radius:99px; transition:width .8s ease"></div>
+      </div>
+      <p style="font-weight:700; font-size:13px; color:var(--paper); opacity:.85"><span id="livePct">0.0%</span> of supply · refreshes automatically</p>
+    </div>
     <div class="lanes">
       <div class="lane dark">
         <span class="tag">PRIORITY LANE</span>
@@ -145,6 +153,31 @@
     var h = Math.floor(left/3600000), m = Math.floor(left%3600000/60000), sec = Math.floor(left%60000/1000);
     cd.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
     setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
+<script>
+(function(){
+  var NFT = '0xaCeF3B62B958ED7F49dFc73885609b4d270B9bD0';
+  var RPCS = ['https://bsc-dataseed.binance.org','https://bsc-rpc.publicnode.com','https://bsc-mainnet.public.blastapi.io','https://bsc-dataseed-public.bnbchain.org'];
+  var el = document.getElementById('liveMinted'), bar = document.getElementById('liveBar'), pct = document.getElementById('livePct'), dot = document.getElementById('liveDot');
+  function call(rpc){
+    var ctrl = new AbortController(); var t = setTimeout(function(){ ctrl.abort(); }, 6000);
+    return fetch(rpc, { method:'POST', headers:{'Content-Type':'application/json'}, signal: ctrl.signal,
+      body: JSON.stringify({ jsonrpc:'2.0', id:1, method:'eth_call', params:[{ to: NFT, data:'0xa2309ff8' }, 'latest'] }) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ clearTimeout(t); if (!j.result) throw new Error('bad'); return parseInt(j.result, 16); });
+  }
+  function tick(){
+    Promise.any(RPCS.map(call)).then(function(n){
+      el.textContent = n.toLocaleString('en-US');
+      var p = (n / 4444 * 100);
+      bar.style.width = Math.max(p, 0.6) + '%';
+      pct.textContent = p.toFixed(1) + '%';
+      dot.style.background = '#3ddc84';
+    }).catch(function(){ dot.style.background = '#E4572E'; })
+    .finally(function(){ setTimeout(tick, 20000); });
   }
   tick();
 })();
