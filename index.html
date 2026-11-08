@@ -32,12 +32,11 @@
   <section class="hero">
     <p class="label" style="color:var(--berry)">BNB Smart Chain · 16 species · First mint free</p>
     <h1 class="display">BEAST<span class="b16">16</span></h1>
-    <p class="sub">4,444 baby beasts are getting ready to run wild. Sixteen species, tiny fangs, zero fear. One of the sixteen is almost never seen.</p>
+    <p class="sub">4,444 baby beasts across sixteen species, every one rolled by on-chain seed. Mint is live now.</p>
     <div class="hero-beasts" id="hero-beasts"></div>
     <div class="board">
       <div class="cell"><div class="n">4,444</div><div class="l label">Total beasts</div></div>
       <div class="cell"><div class="n">16</div><div class="l label">Species</div></div>
-      <div class="cell"><div class="n">1st free</div><div class="l label">Then 0.000474 BNB</div></div>
       <div class="cell"><div class="n">20 max</div><div class="l label">Per wallet</div></div>
     </div>
   </section>
@@ -46,20 +45,16 @@
     <div class="sec-head">
       <p class="label" style="color:var(--berry)">Two ways in · Opens Nov 8 · 12:00 UTC</p>
       <h2 class="display">Pick your lane</h2>
-      <p>Both lanes open at the same moment. Agent wallets are first class here, and everyone plays by the same rules: first beast free, then 0.000474 BNB each, twenty per wallet at most.</p>
+      <p>Mint is live. Watch the pack fill up in real time, then pick your lane below.</p>
     </div>
-    <div style="border:3px solid var(--ink); border-radius:20px; background:var(--paper); text-align:center; padding:20px 16px; margin-bottom:18px">
-      <p class="label" style="color:var(--berry)" id="cdLabel">Mint opens · Nov 8, 12:00 UTC</p>
-      <p class="display" id="countdown" style="font-size:clamp(32px,7vw,46px); margin-top:6px">--:--:--</p>
-      <p style="color:var(--ink2); font-weight:700; font-size:13px; margin-top:4px">All times in UTC · Reveal 24 hours after the open</p>
-    </div>
-    <div style="border:3px solid var(--ink); border-radius:20px; background:var(--sun); color:var(--forest); text-align:center; padding:20px 16px; margin-bottom:18px">
+        <div style="border:3px solid var(--ink); border-radius:20px; background:var(--sun); color:var(--forest); text-align:center; padding:20px 16px; margin-bottom:18px">
       <p class="label" style="color:var(--forest)"><span id="liveDot" style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#3ddc84; margin-right:7px; vertical-align:1px"></span>Live mint count · on-chain</p>
       <p class="display" style="font-size:clamp(38px,8vw,54px); margin-top:6px"><span id="liveMinted">···</span> <span style="font-size:.45em; color:#B23E17">/ 4,444 minted</span></p>
       <div style="height:14px; border-radius:99px; background:rgba(30,61,47,.22); overflow:hidden; margin:14px auto 8px; max-width:520px">
         <div id="liveBar" style="height:100%; width:0%; background:var(--forest); border-radius:99px; transition:width .8s ease"></div>
       </div>
       <p style="font-weight:800; font-size:13px; color:var(--forest)"><span id="livePct">0.0%</span> of supply · refreshes automatically</p>
+      <p style="font-weight:700; font-size:12px; color:#B23E17; margin-top:6px">Mint is live · opened Nov 8, 12:00 UTC · reveal Nov 9, 12:00 UTC</p>
     </div>
     <div class="lanes">
       <div class="lane dark">
@@ -149,9 +144,9 @@
   var cd = document.getElementById('countdown'), label = document.getElementById('cdLabel'), nav = document.getElementById('navMintBtn');
   function tick(){
     var left = OPEN - Date.now();
-    if (left <= 0) { cd.textContent = 'MINT IS LIVE'; label.textContent = 'Mint is live · opened Nov 8, 12:00 UTC'; if (nav) nav.textContent = 'Mint is live'; return; }
+    if (left <= 0) { if (nav) nav.textContent = 'Mint is live'; return; }
     var h = Math.floor(left/3600000), m = Math.floor(left%3600000/60000), sec = Math.floor(left%60000/1000);
-    cd.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
+    if (cd) cd.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
     setTimeout(tick, 1000);
   }
   tick();
