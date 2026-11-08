@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Beast16 Market: trade baby beasts</title>
+<meta name="description" content="The Beast16 marketplace. List, buy and trade baby beast NFTs. Escrow protected, 2.5% fee, instant settlement on BNB Smart Chain."/>
+<meta name="theme-color" content="#FFF4E0"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FFC53D'/%3E%3Cellipse cx='16' cy='19' rx='8' ry='6.5' fill='%231E3D2F'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--paper:#FFFBF2;--cream:#FFF4E0;--ink:#1E3D2F;--ink2:#2A5240;--orange:#FF7A1A;--berry:#E4572E;--leaf:#57A773;--sun:#FFC53D;--pink:#F2A7BB}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-size:16px;line-height:1.5;padding-bottom:96px}
+.display{font-family:"Baloo 2",sans-serif;font-weight:800;line-height:1;letter-spacing:-.01em}
+.label{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.wrap{max-width:1180px;margin:0 auto;padding:0 14px}
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,244,224,.94);backdrop-filter:blur(10px);border-bottom:3px solid var(--ink)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:62px;padding:8px 0}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit}
+.brand .mark{width:36px;height:36px;border:3px solid var(--ink);border-radius:11px;background:var(--sun);display:grid;place-items:center;font-size:19px;box-shadow:3px 3px 0 var(--ink)}
+.brand .display{font-size:21px}
+.brand .display b{color:var(--berry)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;font-family:"Baloo 2",sans-serif;font-weight:800;font-size:16px;min-height:50px;padding:.7rem 1.3rem;border:3px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink);cursor:pointer;box-shadow:4px 4px 0 var(--ink);text-decoration:none;touch-action:manipulation}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-sun{background:var(--sun)}
+.btn-leaf{background:var(--leaf);color:#fff}
+.btn-sm{min-height:46px;padding:.55rem 1rem;font-size:15px}
+.btn.block{width:100%}
+.btn:disabled{opacity:.55;cursor:wait}
+.hero{padding:30px 0 6px;text-align:center}
+.hero h1{font-size:52px;margin:8px 0 0;text-transform:uppercase}
+.hero h1 span{color:var(--berry)}
+.hero p{color:var(--ink2);font-weight:600;max-width:560px;margin:12px auto 0}
+.board{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:24px auto 0;max-width:760px}
+@media(min-width:760px){.board{grid-template-columns:repeat(4,1fr)}}
+.board .cell{background:var(--paper);border:3px solid var(--ink);border-radius:16px;padding:13px 10px;box-shadow:4px 4px 0 var(--ink);text-align:center}
+.board .n{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:23px}
+.board .l{margin-top:3px;color:var(--ink2)}
+.notice{background:var(--ink);color:var(--cream);border:3px solid var(--ink);border-radius:20px;padding:20px;box-shadow:6px 6px 0 var(--berry);margin:26px auto 0;max-width:760px;text-align:center}
+.notice .display{font-size:26px}
+.notice p{color:#BCD3C6;font-weight:600;margin:8px 0 0}
+section.blk{padding:30px 0 4px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sec-head h2{font-size:32px;margin:4px 0 0;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:5px 5px 0 var(--ink)}
+.card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--cream)}
+.card .body{padding:14px 16px 16px}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card .nm{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:20px}
+.card .price{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:22px;color:var(--berry)}
+.card .meta{color:var(--ink2);font-weight:600;font-size:13.5px;margin-top:2px}
+.sell{background:var(--paper);border:3px solid var(--ink);border-radius:22px;padding:20px;box-shadow:6px 6px 0 var(--ink);max-width:760px;margin:0 auto}
+.sell h3{font-size:26px;margin:4px 0 0}
+.field{margin-top:14px}
+.field label{display:block;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.field input{width:100%;min-height:52px;font-size:17px;font-weight:700;font-family:"Nunito",sans-serif;color:var(--ink);background:var(--cream);border:3px solid var(--ink);border-radius:14px;padding:.6rem .9rem}
+.field input:focus{outline:3px solid var(--sun);outline-offset:1px}
+.sell .steps{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+@media(min-width:620px){.sell .steps{flex-direction:row}.sell .steps .btn{flex:1}}
+.empty{background:var(--paper);border:3px dashed var(--ink);border-radius:20px;padding:30px 18px;text-align:center;color:var(--ink2);font-weight:700}
+#statusbar{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;background:var(--ink);color:var(--cream);border:3px solid var(--ink);border-radius:16px;padding:12px 16px;font-weight:700;font-size:14.5px;box-shadow:0 8px 24px rgba(30,61,47,.35);display:none}
+#statusbar.show{display:block}
+#statusbar.err{background:var(--berry)}
+footer.site{margin-top:44px;border-top:3px solid var(--ink);background:var(--paper)}
+.frow{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding:22px 0 30px}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:.001ms !important}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap hrow">
+    <a class="brand" href="../index.html"><span class="mark">🐾</span><span class="display">BEAST<b>16</b> MARKET</span></a>
+    <button class="btn btn-orange btn-sm" id="btn-connect">Connect wallet</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="label" style="color:var(--berry)">Escrow protected · Settles instantly</p>
+    <h1 class="display">Beast <span>Market</span></h1>
+    <p>Trade baby beasts with other keepers. Every sale runs through on-chain escrow: the beast moves only when the payment lands, and both sides settle in the same transaction.</p>
+    <div class="board">
+      <div class="cell"><div class="n" id="st-listed">0</div><div class="l label">Listed</div></div>
+      <div class="cell"><div class="n" id="st-floor">·</div><div class="l label">Floor (BNB)</div></div>
+      <div class="cell"><div class="n">2.5%</div><div class="l label">Market fee</div></div>
+      <div class="cell"><div class="n">Instant</div><div class="l label">Settlement</div></div>
+    </div>
+    <div class="notice" id="soon">
+      <div class="display">The market pen is still closed</div>
+      <p>Trading opens together with the mint. Contracts will be announced here and on the Beast16 channels the moment the pack is released.</p>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sec-head">
+      <div>
+        <p class="label" style="color:var(--berry)">On the floor</p>
+        <h2 class="display">Listings</h2>
+      </div>
+      <button class="btn btn-sun btn-sm" id="btn-refresh">Refresh</button>
+    </div>
+    <div class="grid" id="listings"></div>
+    <div class="empty" id="listings-empty">No beasts listed yet. The first listings appear when trading opens.</div>
+  </section>
+
+  <section class="blk">
+    <div class="sell">
+      <p class="label" style="color:var(--berry)">Sell a beast</p>
+      <h3 class="display">List yours</h3>
+      <div class="field">
+        <label for="in-token">Beast token ID</label>
+        <input id="in-token" type="number" inputmode="numeric" min="1" placeholder="e.g. 123"/>
+      </div>
+      <div class="field">
+        <label for="in-price">Price in BNB</label>
+        <input id="in-price" type="text" inputmode="decimal" placeholder="e.g. 0.05"/>
+      </div>
+      <div class="steps">
+        <button class="btn" id="btn-approve">1 · Approve market</button>
+        <button class="btn btn-leaf" id="btn-list">2 · List beast</button>
+      </div>
+      <p style="color:var(--ink2); font-weight:600; font-size:14px; margin:14px 0 0">Listing is free and you can delist any time at no cost. When your beast sells, you receive 97.5% of the price instantly and the market keeps 2.5%.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap frow">
+    <p class="display" style="font-size:20px">BEAST<b style="color:var(--berry)">16</b> · beast16.fun/market</p>
+    <div class="label" style="display:flex; gap:16px; align-items:center">
+      <a href="../index.html" style="text-decoration:none">Home</a>
+      <a href="../species.html" style="text-decoration:none">The Sixteen</a>
+      <a href="../build.html" style="text-decoration:none">Build a Beast</a>
+    </div>
+  </div>
+</footer>
+<div id="statusbar" role="status"></div>
+<script src="ethers.umd.min.js"></script>
+<script src="market.js?v=1"></script>
+</body>
+</html>
