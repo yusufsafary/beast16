@@ -1,0 +1,15 @@
+{
+  "name": "Beast16 #224",
+  "description": "A baby beast of the Beast16 pack: Batty. Species is decided by on-chain seed.",
+  "image": "https://beast16.fun/img/sp-13.jpg",
+  "attributes": [
+    {
+      "trait_type": "Species",
+      "value": "Batty"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Wild Pack"
+    }
+  ]
+}
