@@ -1,0 +1,15 @@
+{
+  "name": "Beast16 #188",
+  "description": "A baby beast of the Beast16 pack: Fang Pup. Species is decided by on-chain seed.",
+  "image": "https://beast16.fun/img/sp-02.jpg",
+  "attributes": [
+    {
+      "trait_type": "Species",
+      "value": "Fang Pup"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Wild Pack"
+    }
+  ]
+}
