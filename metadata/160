@@ -1,0 +1,15 @@
+{
+  "name": "Beast16 #160",
+  "description": "A baby beast of the Beast16 pack: Oni Kid. Species is decided by on-chain seed.",
+  "image": "https://beast16.fun/img/sp-04.jpg",
+  "attributes": [
+    {
+      "trait_type": "Species",
+      "value": "Oni Kid"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Wild Pack"
+    }
+  ]
+}
