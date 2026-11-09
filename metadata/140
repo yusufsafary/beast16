@@ -1,0 +1,15 @@
+{
+  "name": "Beast16 #140",
+  "description": "A baby beast of the Beast16 pack: Panda Beast. Species is decided by on-chain seed.",
+  "image": "https://beast16.fun/img/sp-08.jpg",
+  "attributes": [
+    {
+      "trait_type": "Species",
+      "value": "Panda Beast"
+    },
+    {
+      "trait_type": "Class",
+      "value": "Wild Pack"
+    }
+  ]
+}
